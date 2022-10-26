@@ -13,9 +13,13 @@ public class PrescriptionFactory {
 
     public static Prescription createPrescription(String name, double bigDecimal, String description, String type) {
         Long prescriptionNumber = Helper.generateId();
-        Prescription prescription = new Prescription.Builder().setPrescriptionNumber(prescriptionNumber)
-                .setName(name).setBigDecimal(bigDecimal).setDescription(description).setType(type).build();
-        return prescription;
+        return Prescription.builder()
+                .prescriptionNumber(prescriptionNumber)
+                .name(name)
+                .price(bigDecimal)
+                .description(description)
+                .type(type)
+                .build();
     }
 
 }
